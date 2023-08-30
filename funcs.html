@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefi Labs for 08/31/2023</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <img src="/imgs/logo-wide.webp" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HelloWorld.html">Hello World</a></li>
+                    <li><a href="onlineShop.html">Online Shop</a></li>
+                    <li><a href="funcs.html">Functions</a></li>
+                    <li><a href="arrowFunctions.html">Arrows</a></li>
+                </ul>
+        </nav>
+    </div>
+    <content>
+        <h1>Basic JavaScript Functions.</h1>
+        <p>
+            Keep'n it func-ee up in here!.
+            <!-- create a link -->
+            <br>
+            <br>
+            <a href="https://javascript.info/function-basics" target="_blank">
+                Function Basics
+            </a>
+            <br>
+            <br>
+            <button name="butt1">No params.</button>
+            <br>
+            <br>
+            <button name="butt2">New param, who dis?</button>
+            <br>
+            <br>
+            <button name="butt3">Come and get sum.</button>
+            <br>
+            <br>
+            <button name="butt4">Backwards.</button>
+        </p>
+    </content>
+<script>
+// Vars
+const button1 = document.querySelector('button[name="butt1"]');
+const button2 = document.querySelector('button[name="butt2"]');
+const button3 = document.querySelector('button[name="butt3"]');
+const button4 = document.querySelector('button[name="butt4"]');
+// Functions
+let noParams = () => alert('This is a funtion with no parameters.');
+
+function sayHi(name) {
+    name = prompt('What is your name?');
+    alert(`Hello, ${name}!`);
+}
+
+function getSum() {
+    num1 = prompt('Give me a number:');
+    num2 = prompt('Give me another number:');
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
+    sum = num1 + num2;
+    alert(`The sum of ${num1} and ${num2} is ${sum}.`);
+}
+
+// A function the does something crazy and weird.
+function crazyFunc() {
+    let crazy = prompt('Type something crazy:');
+    crazy = crazy.toUpperCase();
+    crazy = crazy.split('');
+    crazy = crazy.reverse();
+    crazy = crazy.join('');
+    alert(`Put it in reverse! ${crazy}!`);
+}
+
+let sum = (a, b) => a + b;
+let square = (x) => x * x;
+
+// Event Listeners
+button1.addEventListener('click', noParams);
+button2.addEventListener('click', () => sayHi());
+button3.addEventListener('click', () => getSum());
+
+button4.addEventListener('click', () => crazyFunc());
+</script>
+</body>
+</html>

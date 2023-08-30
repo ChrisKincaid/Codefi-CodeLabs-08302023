@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefi Labs for 08/31/2023</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <img src="/imgs/logo-wide.webp" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HelloWorld.html">Hello World</a></li>
+                    <li><a href="onlineShop.html">Online Shop</a></li>
+                    <li><a href="arrowFunctions.html">Arrows</a></li>
+                </ul>
+        </nav>
+    </div>
+    <content>
+        <h1>Arrow Functions</h1>
+        <p>
+            Using arrow functions in JavaScript.
+            <br>
+            <a href="https://javascript.info/arrow-functions-basics">
+                Arrow Function Basics
+            </a>
+            <!-- create a button -->
+            <br>
+            <br>
+            <button onclick="ask('Do you agree?', () => 
+                alert('You agreed.'), () => 
+                alert('You don\'t agree.'))">
+                Do you agree?
+            </button>
+            <br>
+            <br>
+            <button name="butt1">Click Me!</button>
+            <br>
+            <br>
+            <button name="butt2">Let's multiply.</button>
+            <br>
+            <br>
+            <button name="butt3">Make it CAP.</button>
+            <br>
+            <br>
+            <button name="butt4">Such a square.</button>
+        </p>
+    </content>
+<script>
+// Vars
+const button1 = document.querySelector('button[name="butt1"]');
+const button2 = document.querySelector('button[name="butt2"]');
+const button3 = document.querySelector('button[name="butt3"]');
+const button4 = document.querySelector('button[name="butt4"]');
+
+
+let ask = (question, yes, no) => confirm(question) ? yes() : no();
+let multiply = (a, b) => a * b;
+
+// Do stuff 
+button1.addEventListener('click', () => alert('You clicked me!'));
+
+button2.addEventListener('click', () => {
+    let num1 = prompt('Enter a number');
+    let num2 = prompt('Enter another number');
+    alert(multiply(num1, num2));
+});
+button3.addEventListener('click', () => {
+    let string = prompt('Enter some text:');
+    alert(string.toUpperCase());
+});
+button4.addEventListener('click', () => {
+    let num = prompt('Enter a number:');
+    alert(square(num));
+});
+</script>
+</body>
+</html>

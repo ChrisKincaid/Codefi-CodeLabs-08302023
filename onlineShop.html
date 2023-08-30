@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefi Labs for 08/31/2023</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .jumbotron { padding: 30px; }
+        .text-giant { font-size: 30px; }
+        .priceTag {
+            float: right;
+            margin-top: 7px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <img src="/imgs/logo-wide.webp" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HelloWorld.html">Hello World</a></li>
+                    <li><a href="onlineShop.html">Online Shop</a></li> 
+                    <li><a href="arrowFunctions.html">Arrows</a></li>               </ul>
+        </nav>
+    </div>
+    <content>
+        <h1>Online Shop</h1>
+        <p>
+            Description:
+            <br>
+            Using JavaScript to create an online shop.
+        </p>
+            <br>
+            <br>
+        <div class="jumbotron">
+            <form>
+                <div class="sellItem">
+                    <div class="form-group">
+                        <label for="description">Book</label>
+                        <label for="price" class="priceTag">$10.00</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" 
+                        name="quantityBook" min="0" placeholder="Choose a quantity">
+                    </div>
+                </div>
+                <div class="sellItem">
+                    <div class="form-group">
+                        <label for="description">T-Shirt</label>
+                        <label for="price" class="priceTag">$16.00</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" 
+                        name="quantityShirt" min="0" placeholder="Choose a quantity">
+                    </div>
+                </div>
+                <div class="sellItem">
+                    <div class="form-group">
+                        <label for="description">Pen</label>
+                        <label for="price" class="priceTag">$2.00</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" 
+                        name="quantityPen" min="0" placeholder="Choose a quantity">
+                    </div>
+                </div>
+            </form>
+                    <label for="numOfItems">Number of items:</label>
+                    <div class="text-right text-giant items">0</div>
+                    <label for="totalCost">Total Cost:</label>
+                    <div class="text-right text-giant total">$0</div>
+        </div>
+    </content>
+    <<script>
+        // What do you need to work with?
+        const bookPrice = 10;
+        const shirtPrice = 16;
+        const penPrice = 2;
+        const bookQuantity = document.querySelector('[name="quantityBook"]');
+        const shirtQuantity = document.querySelector('[name="quantityShirt"]');
+        const penQuantity = document.querySelector('[name="quantityPen"]');
+        const totalCost = document.querySelector('.total');
+        const numOfItems = document.querySelector('.items');
+
+        //create the functions, what are you going to do?
+        function updateValues() {
+            const books = bookQuantity.value;
+            const shirts = shirtQuantity.value;
+            const pens = penQuantity.value;
+
+            const total = 
+                ((books * bookPrice) + 
+                (shirts * shirtPrice) + 
+                (pens * penPrice)).toFixed(2);
+
+            const items = 
+                Number(books) + 
+                Number(shirts) + 
+                Number(pens);
+
+            console.log(total);
+            console.log(items);
+
+            totalCost.textContent = `$${total}`;
+            numOfItems.textContent = items;
+
+        }
+        // Add event Listeners, how are you going to get what you need>
+        bookQuantity.addEventListener('input', updateValues);
+        shirtQuantity.addEventListener('input', updateValues);
+        penQuantity.addEventListener('input', updateValues);
+
+
+        </script>
+</body>
+</html>

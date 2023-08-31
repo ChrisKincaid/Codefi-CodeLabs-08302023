@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefi Labs for 08/31/2023</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        button {
+            /* center the text on the button */
+            text-align: center;
+            /* center the button on the page */
+            margin: 0 auto;
+            /* make the button a block element */
+            display: block;
+            /* give the button a width */
+            width: 200px;
+            /* give the button a height */
+            height: 50px;
+            /* give the button a border */
+            border: 1px solid black;
+            /* give the button a border radius */
+            border-radius: 5px;
+            /* give the button a hover effect */
+            transition: all 0.3s ease;
+            /* give the button a cursor pointer */
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <img src="/imgs/logo-wide.webp" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HelloWorld.html">Hello World</a></li>
+                    <li><a href="onlineShop.html">Online Shop</a></li>
+                    <li><a href="funcs.html">Functions</a></li>
+                    <li><a href="arrowFunctions.html">Arrows</a></li>
+                    <li><a href="objects.html">Objects</a></li>
+                    <li><a href="closures.html">Closures</a></li>
+                    <li><a href="jsvids.html">JavaScript Vids</a></li>
+                </ul>
+        </nav>
+    </div>
+    <content>
+        <h1>JavaScript Deep Dive: Closures</h1>
+        <p>
+            <br>
+            <a href="https://javascript.info/closure" 
+                target="_blank">
+                From the article JavaScript Closures.
+            </a>
+            <br>
+            <br>
+            <!-- create a submit button that says count to 10 -->
+            <button onclick="countToTen()">
+                Count to 5
+        </p>
+    </content>
+    <script>
+        function makeCounter() {
+            let count = 0;
+            return function() {
+                return count++;
+            };
+        }
+        function countToTen() {
+            let counter = makeCounter();
+            alert(counter()); // 0
+            alert(counter()); // 1
+            alert(counter()); // 2
+            alert(counter()); // 3
+            alert(counter()); // 4
+            alert(counter()); // 5
+        }
+
+    </script>
+</body>
+</html>

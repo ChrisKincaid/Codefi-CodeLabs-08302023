@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefi Labs for 08/31/2023</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        content {
+            background-color: beige;
+            padding: 15px;
+        }
+        .content {
+            font-size: 19px;
+            line-height: 1.5;
+            width: 100%;
+            margin: 0;
+        }
+        .floater {
+            background: #FFF;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        };
+        .floater input{
+            padding: 30px 20px;
+            border: none;
+            box-shadow: none;
+            font-size: 14px;
+        }
+        .floater-bottom {
+            background: beige;
+            padding: 6px 10px 7px;
+            text-align: right;
+            border-top: 1px solid #DDD;
+        }
+        .floater-bottom button {
+            width: 100%;
+            padding: 4px 8px;
+            margin: none;
+            font-size: 15px;
+        }
+
+        /* ----------------------------- */
+        .friend {
+            display: block;
+            background: #FFF;
+            color: #999;
+            padding: 5px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #DDD;
+        }
+        .friend:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .friend:last-child {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <img src="/imgs/logo-wide.webp" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HelloWorld.html">Hello World</a></li>
+                    <li><a href="onlineShop.html">Online Shop</a></li>
+                    <li><a href="funcs.html">Functions</a></li>
+                    <li><a href="arrowFunctions.html">Arrows</a></li>
+                    <li><a href="objects.html">Objects</a></li>
+                    <li><a href="closures.html">Closures</a></li>
+                    <li><a href="jsvids.html">JavaScript Vids</a></li>
+                </ul>
+        </nav>
+    </div>
+    <content>
+        <h1>JavaScript Objects Basics</h1>
+        <p>
+            <br>
+            <br>
+            <a href="https://javascript.info/object" 
+                target="_blank">
+                Learning material: Objects: the basics
+            </a>
+            <br>
+            <br>
+            <!-- <div class="overlay"></div> -->
+
+            <div class="floater content">
+                <form class="friend-form">
+                    <div class="floater-top">
+                        <input  type="text" 
+                                class="form-control friendName" 
+                                placeholder="Real Name">
+                        <input  type="text" 
+                                class="form-control friendSupeName" 
+                                placeholder="Super Hero Name">
+                        <input  type="text" 
+                                class="form-control friendPower" 
+                                placeholder="Description of superpowers">
+                    </div>
+                    <div class="floater-bottom">
+                        <button  type="submit" 
+                                class="btn btn-primary btn-sn">
+                                Add to Super Team
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="freinds-list content">
+                <!-- JavaScript Enters a div here -->
+            </div>
+
+        </p>
+    </content>
+<script>
+    const freindslist = document.querySelector('.freinds-list');
+    const friendform = document.querySelector('.friend-form');
+    const friendName = document.querySelector('.friendName');
+    const friendSupeName = document.querySelector('.friendSupeName');
+    const friendPower = document.querySelector('.friendPower');
+    const friendInfo = {
+        name: friendName.value,
+        supeName: friendSupeName.value,
+        power: friendPower.value
+    };
+
+
+    function createFriend(e) {
+        e.preventDefault();
+        // Display message if anything is empty.
+        if (friendName.value === '' || 
+            friendSupeName.value === '' || 
+            friendPower.value === '') {
+                alert('Please fill in all fields.');
+                return;
+        }
+
+        console.log(friendName.value);
+        const friend = document.createElement('div');
+        friend.className = 'friend';
+        friend.innerHTML = `
+            <p>Name: ${friendName.value}</p>
+            <p>Alias: ${friendSupeName.value}</p>
+            <p>Superpowers:</p>
+            <p>${friendPower.value}</p>
+        `;
+        freindslist.appendChild(friend);
+        console.log(friendInfo);
+
+        freindslist.appendChild(friend);
+
+    }
+
+    friendform.addEventListener('submit', createFriend);
+
+    // Create a scrollbar if needed
+    freindslist.style.overflowY = "scroll";
+    freindslist.style.height = "250px";
+
+
+
+
+</script>
+</body>
+</html>

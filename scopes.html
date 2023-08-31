@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefi Labs for 08/31/2023</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .scopeContent {
+            /* background-color: beige; */
+            padding: 15px;
+            /* make everything centered */
+            text-align: center;
+
+            .thing{
+                width: 70px
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <img src="/imgs/logo-wide.webp" alt="logo" class="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="HelloWorld.html">Hello World</a></li>
+                    <li><a href="onlineShop.html">Online Shop</a></li>
+                    <li><a href="funcs.html">Functions</a></li>
+                    <li><a href="arrowFunctions.html">Arrows</a></li>
+                    <li><a href="objects.html">Objects</a></li>
+                    <li><a href="closures.html">Closures</a></li>
+                    <li><a href="scopes.html">scopes</a></li>
+                    <li><a href="jsvids.html">JavaScript Vids</a></li>
+                </ul>
+        </nav>
+    </div>
+    <content>
+        <h1>Scope it out!</h1> <h8>(and hoist them funcs yo)</h8>
+        <p>
+            <br>
+            <a href="https://www.youtube.com/watch?v=6GNsLujbQgs&list=PLJhkLjPTf1DLkaryPjdP1RiBakdIen4p6&index=5&ab_channel=GermanCruz" 
+                target="_blank">
+                This work was created from the JavaScript Scopes video.
+            </a>
+            <br>
+            <br>
+            <a style="font-size: smaller;" href="https://www.youtube.com/watch?v=PUu2lazguKA&list=PLJhkLjPTf1DLkaryPjdP1RiBakdIen4p6&index=6&ab_channel=GermanCruz" 
+                target="_blank">
+                Also the hoisting video.
+            </a>
+            <div class="scopeContent">
+                <br>
+                <br>
+                <p>-------------Scope-------------</p>
+                <br>
+                <img src="imgs/THiNG001.jpg" 
+                alt="Thing from Addams Family" 
+                class="thing">
+                <br>
+                <button name="butt1">Rename THiNG</button>
+                <button name="butt3">THiNG name</button>
+                <p>-------------Scope-------------</p>
+                <br>
+                <br>
+                <br>
+                <img src="imgs/THiNG002.webp" 
+                alt="Thing from Fantastic Four" 
+                class="thing">
+                <br>
+                <!-- Create a out of scope button -->
+                <button name="butt2">THiNG</button>
+            </div>
+        </p>
+    </content>
+    <script>
+        let butt1 = document.querySelector("button[name='butt1']");
+        let butt2 = document.querySelector("button[name='butt2']");
+        let butt3 = document.querySelector("button[name='butt3']");
+        let inScopeOutScopeStors = "THiNG";
+        const outScopeTHiNG = "THiNG";
+
+        butt1.addEventListener("click", inScopeFunc); // Hoisting
+        butt3.addEventListener("click", inScopeFunc); // Hoisting
+        butt2.addEventListener("click", outOfScopeFunc); // Hoisting
+        
+        function inScopeFunc() {
+            if (this.name == "butt1") {
+                let inScopeTHiNG = prompt("What would you like to rename THiNG?");
+                alert("THiNG is now named: " + inScopeTHiNG);
+                inScopeOutScopeStors = inScopeTHiNG;
+            }
+            if (this.name == "butt3") {
+                alert("THiNG is named: " + inScopeOutScopeStors);
+            }
+            
+        }
+        
+
+        function displayTHiNGName() {
+            alert("THiNG is named: " + outScopeTHiNG);
+        }
+
+        function outOfScopeFunc() {
+            alert("This THiNG is out of scope and can't be renamed.");
+        }
+
+
+
+    </script>
+</body>
+</html>

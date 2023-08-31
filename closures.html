@@ -58,6 +58,12 @@
             <!-- create a submit button that says count to 10 -->
             <button onclick="countToTen()">
                 Count to 5
+            </button>
+            <br>
+            <br>
+            <button onclick="function001()">
+                Conjunction Functions!!
+            </button>
         </p>
     </content>
     <script>
@@ -75,6 +81,22 @@
             alert(counter()); // 3
             alert(counter()); // 4
             alert(counter()); // 5
+        }
+
+        function function001() {
+            alert("You ran the first function.");
+            funnction002();
+        }
+        function funnction002() {
+            alert("The first function ran the second function.");
+            funnction003();
+        }
+        function funnction003() {
+            alert("The second function ran the third function.");
+            function004();
+        }
+        function function004() {
+            alert("That's enough functions running functions.");
         }
 
     </script>

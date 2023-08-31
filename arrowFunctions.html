@@ -49,7 +49,22 @@
             <button name="butt3">Make it CAP.</button>
             <br>
             <br>
-            <button name="butt4">Such a square.</button>
+            <button name="butt4">Air-E-Ya.</button>
+            <br>
+            <br>
+            <button name="butt5">Person object thingy.</button>
+            <br>
+            <p>-------------Library-------------</p>
+            <br>
+            <button name="butt6">Add book to Library.</button>
+            <br>
+            <br>
+            <button name="butt7">Show Library.</button>
+            <br>
+            <br>
+            <button name="butt8">Remove book to Library.</button>
+            <br>
+            <p>-------------Library-------------</p>
         </p>
     </content>
 <script>
@@ -58,6 +73,10 @@ const button1 = document.querySelector('button[name="butt1"]');
 const button2 = document.querySelector('button[name="butt2"]');
 const button3 = document.querySelector('button[name="butt3"]');
 const button4 = document.querySelector('button[name="butt4"]');
+const button5 = document.querySelector('button[name="butt5"]');
+const button6 = document.querySelector('button[name="butt6"]');
+const button7 = document.querySelector('button[name="butt7"]');
+const button8 = document.querySelector('button[name="butt8"]');
 
 
 let ask = (question, yes, no) => confirm(question) ? yes() : no();
@@ -76,9 +95,63 @@ button3.addEventListener('click', () => {
     alert(string.toUpperCase());
 });
 button4.addEventListener('click', () => {
-    let num = prompt('Enter a number:');
-    alert(square(num));
+    // Calculate the area of a rectangle
+    let length = prompt('Enter the length of the rectangle:');
+    let width = prompt('Enter the width of the rectangle:');
+    let area = length * width;
+    alert(`The area of the rectangle is ${area}.`);
 });
+button5.addEventListener('click', () => {
+    let name = prompt('Enter person\'s name:');
+    let age = prompt('Enter person\'s age:');
+    let hairColor = prompt('Enter person\'s hair color:');
+    let person = {
+        name: name,
+        age: age,
+        hairColor: hairColor,
+        sayHi: () => alert(`Hello, my name is ${name}. I am ${age} years old and my hair is ${hairColor}.`)
+    };
+    person.sayHi();
+});
+// create a funtion to add books to a library array
+let library = [];
+button6.addEventListener('click', () => {
+    let addBook = () => {
+        let title = prompt('Enter the title of the book:');
+        let book = {
+            title: title,
+            id: library.length + 1
+        };
+        library.push(book);
+        alert(`You added ${title} to the library.`);
+    };
+    addBook();
+});
+// create a function to show the library array in one alert
+button7.addEventListener('click', () => {
+    let showLibrary = () => {
+        let libraryString = '';
+        for (let i = 0; i < library.length; i++) {
+            libraryString += `ID: ${library[i].id}. ${library[i].title}\n`;
+        }
+        alert(libraryString);
+    };
+    showLibrary();
+});
+// create a function to remove a book from the library array
+button8.addEventListener('click', () => {
+    let removeBook = () => {
+        let bookId = prompt('Enter the ID of the book you want to remove:');
+        for (let i = 0; i < library.length; i++) {
+            if (library[i].id == bookId) {
+                library.splice(i, 1);
+                alert(`You removed ${library[i].title} from the library.`);
+            }
+        }
+    };
+    removeBook();
+});
+
 </script>
 </body>
 </html>
